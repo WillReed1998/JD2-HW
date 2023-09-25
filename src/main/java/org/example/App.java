@@ -1,14 +1,22 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
-        System.out.println( "Hello World!" );
+import java.util.List;
+
+
+public class App {
+    public static void main(String[] args) {
+        EntityManagerFactory entityManagerFactory  = Persistence.createEntityManagerFactory("test");
+        EntityManager entityManager = entityManagerFactory .createEntityManager();
+
+        List<ResidentInfo> residents = Query.getResidentsWithCriteria(entityManager);
+
+        System.out.println(residents);
+
+        entityManager.close();
+        entityManagerFactory.close();
     }
 }
