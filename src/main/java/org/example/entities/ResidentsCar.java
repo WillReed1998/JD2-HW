@@ -11,13 +11,13 @@ public class ResidentsCar {
     private Integer id;
 
     @Column(name = "carModel")
-    private String CarModel;
+    private String carModel;
 
     @Column(name = "plateNumber")
-    private String PlateNumber;
+    private String plateNumber;
 
     @Column(name = "entryPermit")
-    private Integer EntryPermit;
+    private Integer entryPermit;
 
     @OneToOne
     @Column(name = "resident_id")
@@ -28,15 +28,15 @@ public class ResidentsCar {
     }
 
     public String getCarModel() {
-        return CarModel;
+        return carModel;
     }
 
     public String getPlateNumber() {
-        return PlateNumber;
+        return plateNumber;
     }
 
     public Integer getEntryPermit() {
-        return EntryPermit;
+        return entryPermit;
     }
 
     public Resident getResident() {

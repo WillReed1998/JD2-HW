@@ -11,22 +11,22 @@ public class Resident {
     private Integer id;
 
     @Column(name = "first_name")
-    private String FirstName;
+    private String firstName;
 
     @Column(name = "last_name")
-    private String LastName;
+    private String lastName;
 
     @Column(name = "email")
-    private String Email;
+    private String email;
 
     @Column(name = "phone_number")
-    private Integer PhoneNumber;
+    private Integer phoneNumber;
 
     @Column(name = "apartment_count")
-    private Integer ApartmentCount;
+    private Integer apartmentCount;
 
     @Column(name = "lives_here")
-    private Integer LivesHere;
+    private Integer livesHere;
 
     @OneToOne
     @JoinColumn(name = "apartment_id")
@@ -37,27 +37,27 @@ public class Resident {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public Integer getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public Integer getApartmentCount() {
-        return ApartmentCount;
+        return apartmentCount;
     }
 
     public Integer getLivesHere() {
-        return LivesHere;
+        return livesHere;
     }
 
     public Apartment getApartment() {
