@@ -14,13 +14,14 @@ public class Query {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<ResidentInfo> criteriaQuery = criteriaBuilder.createQuery(ResidentInfo.class);
         Root<Resident> residentRoot = criteriaQuery.from(Resident.class);
+        Join<Resident, ResidentsCar> residentsCarJoin = residentRoot.join("residentsCar"); // З'єднуємо сутність "Resident" з "ResidentsCar"
         Join<Resident, Apartment> apartmentJoin = residentRoot.join("apartment");
         Join<Apartment, Building> buildingJoin = apartmentJoin.join("building");
 
-        Predicate hasEntryPermit = criteriaBuilder.equal(residentRoot.get("entryPermit"), 0); // Власники без права в'їзду
+        Predicate hasEntryPermit = criteriaBuilder.equal(residentsCarJoin.get("entryPermit"), 0); // Власники без права в'їзду
         Predicate livesInComplex = criteriaBuilder.equal(residentRoot.get("livesHere"), 1); // Проживають в ЖК
         Predicate ownsLessThanTwoApartments = criteriaBuilder.equal(residentRoot.get("apartmentCount"), 2); // Мають менше двох квартир у власності
-//        Predicate ownsLessThanTwoApartments = criteriaBuilder.lessThan(residentRoot.get("apartmentCount"), 2);
+
         criteriaQuery.select(criteriaBuilder.construct(
                 ResidentInfo.class,
                 residentRoot.get("id"),
@@ -36,3 +37,4 @@ public class Query {
         return entityManager.createQuery(criteriaQuery).getResultList();
     }
 }
+

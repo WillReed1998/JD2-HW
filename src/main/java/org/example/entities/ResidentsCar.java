@@ -20,7 +20,7 @@ public class ResidentsCar {
     private Integer entryPermit;
 
     @OneToOne
-    @Column(name = "resident_id")
+    @JoinColumn(name = "resident_id") // Вказуємо стовпець для зв'язку
     private Resident resident;
 
     public Integer getId() {
@@ -43,3 +43,4 @@ public class ResidentsCar {
         return resident;
     }
 }
+
