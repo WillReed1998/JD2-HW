@@ -4,13 +4,13 @@ public class ResidentInfo {
     private Integer id;
     private String firstName;
     private String lastName;
-    private Integer phoneNumber;
+    private String phoneNumber;
     private String email;
     private String address;
     private Integer apartmentNumber;
     private Integer area;
 
-    public ResidentInfo(Integer id, String firstName, String lastName, Integer phoneNumber, String email, String address, Integer apartmentNumber, Integer area) {
+    public ResidentInfo(Integer id, String firstName, String lastName, String phoneNumber, String email, String address, Integer apartmentNumber, Integer area) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

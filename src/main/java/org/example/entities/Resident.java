@@ -20,7 +20,7 @@ public class Resident {
     private String email;
 
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "apartment_count")
     private Integer apartmentCount;
@@ -28,10 +28,12 @@ public class Resident {
     @Column(name = "lives_here")
     private Integer livesHere;
 
-    @OneToOne
+    @OneToOne(mappedBy = "resident")
+    private ResidentsCar residentsCar;
+
+    @ManyToOne
     @JoinColumn(name = "apartment_id")
     private Apartment apartment;
-
     public Integer getId() {
         return id;
     }
@@ -48,7 +50,7 @@ public class Resident {
         return email;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
